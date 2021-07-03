@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Car Price Prediction</title>
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        
+        <!-- Style CSS -->
+        <link rel="stylesheet" href="{{url_for('static', filename= 'style2.css')}}">
+        
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="{{url_for('static', filename= 'all.css')}}">
+        
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    </head>
+    <style>
+        body {
+            font-family: "Montserrat", sans-serif;
+        }
+
+        #bg {
+            position: fixed; 
+            top: -50%; 
+            left: -50%; 
+            width: 200%; 
+            height: 200%;
+        }
+        #bg img {
+            position: absolute; 
+            top: 0; 
+            left: 0; 
+            right: 0; 
+            bottom: 0; 
+            margin: auto; 
+            min-width: 50%;
+            min-height: 50%;
+        }
+        .card{
+            position: absolute;
+            min-width: 30%;
+            top: 50px;
+            left: 20%;
+        }
+
+        input{
+            border: 1px solid black;
+            border-radius: 3px;
+            width: 85%;
+        }
+
+        input[type=text]:focus{
+            border: 1px solid lightblue;
+            outline: 1px solid lightblue;
+        }
+        
+        .form-select{
+            margin: auto;
+            width: 85%;
+            padding-top: 2.5px;
+            padding-bottom: 2.5px;
+            font-size: 16px;
+            padding-left: 3px;
+            border: 1px solid black;
+        }
+        .form-select:focus{
+            outline: none;
+            box-shadow: none;
+            border: 1px solid lightblue;
+        }
+        
+    </style>
+<body>
+    <div id="bg">
+        <img src="static/cars.jpg" alt="">
+      </div>
+    
+        <div class="card">
+            <div class="card-body bg-light border-bottom">
+                <h4 class="card-title text-center">Car Price Prediction</h4>
+                <form action="submit" method="POST">
+                    <p class="card-text text-center">
+                        
+                        <label for="">Year of Purchase</label><br>
+                        <input type="text" name="year" id="year" placeholder="Enter year like 2015" class="text-muted mb-2" required><br>
+                        
+                        <label for="">Showroom Price(in lakhs)</label><br>
+                        <input type="text" name="Present_Price" id="Present_Price" placeholder="Enter present price in lacs 3.4" class="text-muted mb-2" required><br>
+
+                        <label for="">Kilometers Drived</label><br>
+                        <input type="text" name="Kms_Driven" id="Kms_Driven" placeholder="24000" class="text-muted mb-2" required><br>
+                        
+                        <label for="">Fuel</label><br>
+                        <select class="form-select form-select-lg text-muted mb-2" aria-label=".form-select-lg example"
+                        id="Fuel_Type_Petrol" name="Fuel_Type_Petrol" required>
+                            <option value="Petrol" selected>Petrol</option>
+                            <option value="Diesel">Diesel</option>
+                            <option value="Cng">CNG</option>
+                        </select>
+                        
+                        <label for="">Owner Type</label><br>
+                        <select class="form-select form-select-lg text-muted mb-2" aria-label=".form-select-lg example" id="Seller_Type_Individual" name="Seller_Type_Individual" required>
+                            <option value="Dealer" selected>Dealer</option>
+                            <option value="Indivaidual">Individual</option> 
+                        </select>
+                        
+                        <label for="">Transmission Type</label><br>
+                        <select class="form-select form-select-lg text-muted mb-2" aria-label=".form-select-lg example" id="Transmission_Manual"   name="Transmission_Manual" required>
+                            <option value="Petrol" selected>Mannual Car</option>
+                            <option value="Diesel">Automatic Car</option>
+                        </select>
+                        
+                        <label for="">How Old is Car</label><br>
+                        <input type="text" name="no_year" id="no_year" placeholder="number of years" class="text-muted mb-3" required><br>
+                        <button type="submit" class="btn btn-outline-dark" id="submit" onclick="click()">Submit</button>
+                        <p>{{predict}}</p>
+                    
+                    </p>
+                </form>
+            </div>
+        </div>
+    
+    <!-- Script Source Files -->
+
+	<!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    -->
+	<!-- End Script Source Files -->
+</body>
+</html>
