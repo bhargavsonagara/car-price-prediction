@@ -19,7 +19,8 @@ standard_to = StandardScaler()
 @app.route("/submit", methods=['POST'])
 def submit():
     if request.method == 'POST':
-        year = float(request.form['year'])
+        year = int(request.form['year'])
+        no_year = int(2021 - year)
         Present_Price = float(request.form['Present_Price'])
         Kms_Driven = float(request.form['Kms_Driven'])
 
@@ -46,7 +47,7 @@ def submit():
         else:
             Transmission_Manual = 0
 
-        no_year = float(request.form['no_year'])
+        
 
         predict = model.predict([[year, Present_Price, Kms_Driven, Fuel_Type_Diesel, Fuel_Type_Petrol,
                                 Seller_Type_Individual, Transmission_Manual, no_year]])
@@ -64,4 +65,4 @@ def submit():
 
 if __name__ == '__main__':
     app.debug = True
-    app.run(port=8000)
+    app.run(port=5000)
