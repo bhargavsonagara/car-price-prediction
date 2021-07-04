@@ -24,6 +24,23 @@
 	<link rel="stylesheet" type="text/css" href="static/util.css">
 	<link rel="stylesheet" type="text/css" href="static/main.css">
 <!--===============================================================================================-->
+
+<style>
+     .form-select{
+            margin: auto;
+            width: 100%;
+            padding-top: 2.5px;
+            padding-bottom: 2.5px;
+            font-size: 16px;
+            padding-left: 3px;
+            border: 1px solid white;
+        }
+        .form-select:focus{
+            outline: none;
+            box-shadow: none;
+            border: 1px solid lightblue;
+        }
+</style>
 </head>
 <body>
 
@@ -57,11 +74,12 @@
 				<div class="wrap-input100 input100-select">
 					<span class="label-input100">Fuel</span>
 					<div>
-						<select class="selection-2" id="Fuel_Type_Petrol" name="Fuel_Type_Petrol">
-							<option value="Petrol" selected>Petrol</option>
+						<select class="form-select form-select-lg text-dark mb-2" aria-label=".form-select-lg example"
+                        id="Fuel_Type_Petrol" name="Fuel_Type_Petrol" required>
+                            <option value="Petrol" selected>Petrol</option>
                             <option value="Diesel">Diesel</option>
                             <option value="Cng">CNG</option>
-						</select>
+                        </select>
 					</div>
 					<span class="focus-input100"></span>
 				</div>
@@ -69,10 +87,10 @@
 				<div class="wrap-input100 input100-select">
 					<span class="label-input100">Owner Type</span>
 					<div>
-						<select class="selection-2" id="Seller_Type_Individual" name="Seller_Type_Individual">
-							<option value="Dealer" selected>Dealer</option>
+						<select class="form-select form-select-lg text-dark mb-2" aria-label=".form-select-lg example" id="Seller_Type_Individual" name="Seller_Type_Individual" required>
+                            <option value="Dealer" selected>Dealer</option>
                             <option value="Indivaidual">Individual</option> 
-						</select>
+                        </select>
 					</div>
 					<span class="focus-input100"></span>
 				</div>
@@ -80,10 +98,10 @@
                 <div class="wrap-input100 input100-select">
 					<span class="label-input100">Transmission Type</span>
 					<div>
-						<select class="selection-2" id="Transmission_Manual" name="Transmission_Manual">
-							<option value="Petrol" selected>Mannual Car</option>
+						<select class="form-select form-select-lg text-dark mb-2" aria-label=".form-select-lg example" id="Transmission_Manual"   name="Transmission_Manual" required>
+                            <option value="Petrol" selected>Mannual Car</option>
                             <option value="Diesel">Automatic Car</option>
-						</select>
+                        </select>
 					</div>
 					<span class="focus-input100"></span>
 				</div>
